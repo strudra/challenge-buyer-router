@@ -14,7 +14,7 @@ Challenge is evaluated based on tests. Be sure to understand how [`servertest`](
 
 ### Challenge Conditions
 
-In order to **pass** the challenge **all** tests should be passing like in example below. Be sure that your *tests pass for multiple system timezones*:
+Your code must follow our [rules and guidelines](https://gist.github.com/davidguttman/e9bcf695ee6e9812fbbc27eceb29372e), and in order to **pass** the challenge **all** tests should be passing like in example below:
 ```bash
 > node test/index.js && standard
 
