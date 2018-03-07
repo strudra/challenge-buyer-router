@@ -1,6 +1,6 @@
 # Code Challenge
 
-This challenge is to route traffic according to buyer rules. You will set up an http server (*do not use `express`*) that can create and retrieve "buyers". The http server will also route traffic according to the preferences of the buyers.
+This challenge is to route traffic according to buyer rules. You will set up an http server (*do not use* `express`, see [example-server](https://github.com/Interlincx/example-server) if you need an example) that can create and retrieve "buyers". The http server will also route traffic according to the preferences of the buyers.
 
 ### Setup
 -  run ```npm i``` in order to install required packages.
@@ -14,7 +14,7 @@ Challenge is evaluated based on tests. Be sure to understand how [`servertest`](
 
 ### Challenge Conditions
 
-In order to **pass** the challenge **all** tests should be passing like in example bellow:
+In order to **pass** the challenge **all** tests should be passing like in example below. Be sure that your *tests pass for multiple system timezones*:
 ```bash
 > node test/index.js && standard
 
