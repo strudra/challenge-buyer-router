@@ -3,20 +3,26 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "node test/index.js && standard"
+    "test": "node test/index.js && standard",
+    "start:dev": "nodemon index.js"
   },
   "keywords": [],
   "author": "David Guttman <david@guttman.io> (http://davidguttman.com/)",
   "license": "MIT",
   "devDependencies": {
     "fakeredis": "^2.0.0",
-    "map-async": "^0.1.1",
     "servertest": "^1.2.1",
     "standard": "^8.6.0",
-    "tape": "^4.6.3"
+    "tape": "^4.6.3",
+    "nodemon": "^1.12.1"
   },
   "dependencies": {
-    "redis": "2.7.1"
+    "body": "^5.1.0",
+    "corsify": "^2.1.0",
+    "http-hash-router": "^1.1.0",
+    "map-async": "^0.1.1",
+    "redis": "2.7.1",
+    "send-data": "^8.0.0"
   },
   "directories": {
     "test": "test"
