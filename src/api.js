@@ -1,7 +1,10 @@
+'use strict'
 const body = require('body/json')
 const sendJson = require('send-data/json')
 
 const { filterAttributes } = require('./helpers')
+
+const { handleCreateBuyer } = require('./handlers/buyer')
 
 const addBuyer = (req, res, opt, cb) => {
   body(req, res, (err, params) => {
@@ -11,15 +14,11 @@ const addBuyer = (req, res, opt, cb) => {
     // security: stops clients from submitting more props
     const filteredParams = filterAttributes(params, 'id', 'offers')
 
-    // TODO: create buyer in REDIS
-    sendJson(req, res, {
-      body: {
-        id: filteredParams.id,
-        criteria: JSON.stringify(filteredParams.offers[0].criteria),
-        value: filteredParams.offers[0].value,
-        location: filteredParams.offers[0].location
-      },
-      statusCode: 201
+    handleCreateBuyer(filteredParams, () => {
+      sendJson(req, res, {
+        body: {},
+        statusCode: 201
+      })
     })
   })
 }
