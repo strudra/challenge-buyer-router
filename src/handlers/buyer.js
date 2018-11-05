@@ -22,6 +22,9 @@ const handleCreateBuyer = (props, cb) => {
   multi.exec(cb)
 }
 
+const handleGetBuyer = (id, cb) => client.get(`buyer:${id}`, cb)
+
 module.exports = {
-  handleCreateBuyer
+  handleCreateBuyer,
+  handleGetBuyer
 }

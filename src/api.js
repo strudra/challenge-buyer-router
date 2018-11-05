@@ -4,7 +4,7 @@ const sendJson = require('send-data/json')
 
 const { filterAttributes } = require('./helpers')
 
-const { handleCreateBuyer } = require('./handlers/buyer')
+const { handleCreateBuyer, handleGetBuyer } = require('./handlers/buyer')
 
 const addBuyer = (req, res, opt, cb) => {
   body(req, res, (err, params) => {
@@ -24,7 +24,12 @@ const addBuyer = (req, res, opt, cb) => {
 }
 
 const getBuyerWithId = (req, res, opt, cb) => {
-
+  const id = opt.params.id
+  handleGetBuyer(id, (err, result) => {
+    if (err) return cb(err)
+    if (!result) return cb(new Error('404'))
+    sendJson(req, res, JSON.parse(result))
+  })
 }
 
 const getRoute = (req, res, opt, cb) => {
